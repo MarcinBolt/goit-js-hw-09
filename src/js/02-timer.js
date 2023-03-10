@@ -7,43 +7,35 @@ const timerDiv = document.querySelector('div.timer');
 const startBtn = document.querySelector('button[data-start]');
 const spanDays = document.querySelector('span[data-days]');
 const spanHours = document.querySelector('span[data-hours]');
-const spanLabel = document.querySelector('span.label');
 const spanMinutes = document.querySelector('span[data-minutes]');
 const spanSeconds = document.querySelector('span[data-seconds]');
+const allValueSpans = document.querySelectorAll('span.value');
+const allLabelSpans = document.querySelectorAll('span.label');
 
 // ELEMENTS STYLING //
+dataTimePicker.style.fontSize = '23px';
 
-dataTimePicker.style.fontSize = '18px';
-startBtn.style.fontSize = '18px';
-timerDiv.style.display = 'flex';
-timerDiv.style.paddingTop = '30px';
-timerDiv.style.textTransform = 'uppercase';
-
-timerDiv.style.gap = '20px';
-spanLabel.style.display = 'flex';
-spanLabel.style.justifyContent = 'center';
-
-spanDays.style.fontSize = '50px';
-spanDays.style.lineHeight = '1';
-spanDays.style.display = 'flex';
-spanDays.style.justifyContent = 'center';
-
-spanHours.style.fontSize = '50px';
-spanHours.style.display = 'flex';
-spanHours.style.lineHeight = '1';
-spanHours.style.justifyContent = 'center';
-
-spanMinutes.style.fontSize = '50px';
-spanMinutes.style.display = 'flex';
-spanMinutes.style.lineHeight = '1';
-spanMinutes.style.justifyContent = 'center';
-
-spanSeconds.style.fontSize = '50px';
-spanSeconds.style.display = 'flex';
-spanSeconds.style.lineHeight = '1';
-spanSeconds.style.justifyContent = 'center';
-
+startBtn.style.fontSize = '23px';
 startBtn.disabled = true;
+
+timerDiv.style.display = 'flex';
+timerDiv.style.paddingTop = '40px';
+timerDiv.style.gap = '20px';
+
+allValueSpans.forEach(valueSpan => {
+  valueSpan.style.display = 'flex';
+  valueSpan.style.justifyContent = 'center';
+  valueSpan.style.fontSize = '60px';
+  valueSpan.style.lineHeight = '1';
+});
+
+allLabelSpans.forEach(labelSpan => {
+  labelSpan.style.display = 'flex';
+  labelSpan.style.justifyContent = 'center';
+  labelSpan.style.fontSize = '20px';
+  labelSpan.style.lineHeight = '1.5';
+  labelSpan.style.textTransform = 'uppercase';
+});
 // ELEMENTS STYLING //
 
 function convertMs(ms) {
