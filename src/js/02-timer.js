@@ -95,15 +95,21 @@ const options = {
         dataTimePicker.disabled = true;
 
         const timerId = setInterval(() => {
+          let milliSecondsCounter =
+            selectedDates[0].getTime() - new Date().getTime();
           counterDateObject = convertMs(milliSecondsCounter);
           spanDays.textContent = addLeadingZero(counterDateObject.days);
           spanHours.textContent = addLeadingZero(counterDateObject.hours);
           spanMinutes.textContent = addLeadingZero(counterDateObject.minutes);
           spanSeconds.textContent = addLeadingZero(counterDateObject.seconds);
-          milliSecondsCounter -= 1000;
+
           if (milliSecondsCounter < 0) {
             clearInterval(timerId);
-            console.log(`STOP!`);
+            spanDays.textContent = '00';
+            spanHours.textContent = '00';
+            spanMinutes.textContent = '00';
+            spanSeconds.textContent = '00';
+            Notiflix.Notify.info('End of countdown!');
           }
         }, 1000);
       });
