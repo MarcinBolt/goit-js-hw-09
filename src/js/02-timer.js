@@ -92,9 +92,9 @@ const options = {
 
       startBtn.addEventListener('click', () => {
         startBtn.disabled = true;
-        let countDown = Math.round(milliSecondsCounter / 1000);
+        dataTimePicker.disabled = true;
 
-        timerId = setInterval(() => {
+        const timerId = setInterval(() => {
           counterDateObject = convertMs(milliSecondsCounter);
           spanDays.textContent = addLeadingZero(counterDateObject.days);
           spanHours.textContent = addLeadingZero(counterDateObject.hours);
