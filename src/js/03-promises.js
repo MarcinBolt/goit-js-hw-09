@@ -11,7 +11,12 @@ const button = document.querySelector('button');
 // ELEMENTS STYLING //
 form.style.display = 'flex';
 form.style.gap = '15px';
-// form.style.justifyContent = 'flex-end';
+button.style.display = 'flex';
+button.style.justifyContent = 'flex-end';
+button.style.fontSize = '18px';
+button.style.lineHeight = '1.5';
+button.style.height = '33px';
+button.style.marginTop = '27px';
 
 formLabels.forEach(label => {
   label.style.display = 'flex';
@@ -26,19 +31,11 @@ formInputs.forEach(input => {
   input.style.fontSize = '18px';
   input.style.lineHeight = '1.5';
 });
-
-button.style.display = 'flex';
-button.style.justifyContent = 'flex-end';
-button.style.fontSize = '18px';
-button.style.lineHeight = '1.5';
-button.style.height = '33px';
-button.style.marginTop = '27px';
-
 // ELEMENTS STYLING //
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  return (promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
         // Fulfill
@@ -54,7 +51,7 @@ function createPromise(position, delay) {
         });
       }
     }, delay);
-  }));
+  });
 }
 
 function handleSubmit(event) {
